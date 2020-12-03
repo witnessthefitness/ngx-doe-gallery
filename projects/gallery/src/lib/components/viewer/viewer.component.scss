@@ -18,13 +18,13 @@
     .doe-viewer-arrow-next {
       right: auto;
       left: 0;
-      transform: translateY(-50%) rotate(180deg);
+      transform: translateY(-50%) scale(-1, 1);
     }
 
     .doe-viewer-arrow-prev {
       right: 0;
       left: auto;
-      transform: translateY(-50%) rotate(0deg)
+      transform: translateY(-50%);
     }
   }
 }
@@ -135,7 +135,7 @@ img {
 
   &-prev {
     left: 0;
-    transform: rotate(180deg) translateY(50%);
+    transform: scale(-1, 1) translateY(-50%);
   }
 
   &-next {
