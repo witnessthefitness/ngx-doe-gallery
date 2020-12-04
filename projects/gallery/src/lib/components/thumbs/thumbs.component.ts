@@ -1,31 +1,31 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostBinding,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Output,
-  QueryList,
-  SimpleChanges,
-  TemplateRef,
-  ViewChild,
-  ViewChildren,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    Input,
+    OnChanges,
+    OnDestroy,
+    Output,
+    QueryList,
+    SimpleChanges,
+    TemplateRef,
+    ViewChild,
+    ViewChildren
 } from '@angular/core';
 import {
-  isBrowser,
-  Orientation,
-  SUPPORT,
-  ThumbTemplateContext,
+    isBrowser,
+    Orientation,
+    SUPPORT,
+    ThumbTemplateContext
 } from '../../core';
 import { Aria } from '../../core/aria';
 import {
-  GalleryItemEvent,
-  GalleryItemInternal,
-  isVideo,
+    GalleryItemEvent,
+    GalleryItemInternal,
+    isVideo
 } from '../../core/gallery-item';
 
 @Component({
@@ -265,7 +265,7 @@ export class ThumbsComponent implements OnChanges, OnDestroy {
   private observeArrows() {
     if (this.thumbsEmpty) return;
 
-    if (!this.arrowObserver) {
+    if (!this.arrowObserver && SUPPORT.intersectionObserver) {
       this.arrowObserver = new IntersectionObserver(this.onArrowsObserved, {
         root: this.thumbListRef.nativeElement,
         threshold: 1.0,
